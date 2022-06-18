@@ -1,0 +1,23 @@
+server:
+  port: 9015
+  contextPath: /jobs
+  name: jobs
+
+com.github.bratchvv.quartz.quartzConfigFile: config/quartz.properties
+
+spring:
+  data.mongodb:
+    uri: mongodb://admin:admin@localhost:27017/jobs?authSource=admin
+  datasource.initialize: true
+  h2.console.enabled: true
+
+quartz:
+  jobStore:
+    dbName: jobs
+    username: user
+    password: user
+
+  everyMinute:
+    cronExpression: 0 * * ? * *
+  daily:
+    cronExpression: 0 0 0 * * ?

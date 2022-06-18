@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: jobs
+
+encrypt:
+  failOnError: true
+
+management.security.enabled: false
+security.basic.enabled: false
+
+management.endpoints.web.exposure.include: "*"

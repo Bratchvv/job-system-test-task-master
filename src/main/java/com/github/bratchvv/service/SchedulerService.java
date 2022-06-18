@@ -127,7 +127,7 @@ public class SchedulerService {
     /**
      * Get job details data.
      *
-     * @param job job to request details {@link SchedulerJob}
+     * @param job  job to request details {@link SchedulerJob}
      * @return job details.
      */
     public JobDetail getJobDetails(SchedulerJob job) {
@@ -139,9 +139,10 @@ public class SchedulerService {
     }
 
     /**
+     *
      * @param schedulerBuilder buildetr
-     * @param job              job to request details {@link SchedulerJob}
-     * @param <T>              trigger type.
+     * @param job  job to request details {@link SchedulerJob}
+     * @param <T>  trigger type.
      * @return job trigger data
      */
     public <T extends Trigger> Trigger getJobTrigger(ScheduleBuilder<T> schedulerBuilder, SchedulerJob job) {

@@ -14,8 +14,8 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 /**
  * Global quartz configuration.
  *
- * @author Vladimir Bratchikov
  * @see QuartzJobBean
+ * @author Vladimir Bratchikov
  */
 @Configuration
 @RequiredArgsConstructor

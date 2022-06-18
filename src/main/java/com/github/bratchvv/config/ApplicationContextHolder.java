@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 /**
  * Context holder for using spring context in quartz jobs.
  *
- * @author Vladimir Bratchikov
  * @see QuartzJobBean
+ * @author Vladimir Bratchikov
  */
 @Component
 public final class ApplicationContextHolder extends SpringBeanJobFactory implements ApplicationContextAware {

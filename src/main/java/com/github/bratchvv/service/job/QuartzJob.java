@@ -14,6 +14,11 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 import java.time.LocalDateTime;
 import java.util.function.Consumer;
 
+/**
+ * Basic abstract layer for all jobs.
+ *
+ * @author Vladimir Bratchikov
+ */
 @Slf4j
 @DisallowConcurrentExecution
 public abstract class QuartzJob extends QuartzJobBean implements Consumer<JobExecutionContext> {
@@ -24,11 +29,13 @@ public abstract class QuartzJob extends QuartzJobBean implements Consumer<JobExe
     @Override
     @SuppressWarnings("All")
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+
         JobInstance jobInstance = new JobInstance();
         jobInstance.setJobKey(getJobType().name());
         jobInstance.setStatus(Status.NEW);
         jobInstance.setStartTime(LocalDateTime.now());
         jobInstance = jobInstanceRepository.save(jobInstance);
+
         try {
             log.info("Job {} is running", getJobType());
             accept(jobExecutionContext);
@@ -47,12 +54,30 @@ public abstract class QuartzJob extends QuartzJobBean implements Consumer<JobExe
         }
     }
 
+    /**
+     * Get type of specific job.
+     *
+     * @return {@link SchedulerJob}
+     */
     protected abstract SchedulerJob getJobType();
 
+    /**
+     * Extra logic for handling errors.
+     * Override it if it's needed.
+     *
+     * @param context job context
+     * @param ex thrown exception
+     */
     protected void handleError(JobExecutionContext context, Exception ex) {
         // custom exception handling logic
     }
 
+    /**
+     * Extra logic for handling end of job.
+     * Override it if it's needed.
+     *
+     * @param context job context
+     */
     protected void finalizeJob(JobExecutionContext context) {
         // custom finalize logic
     }

@@ -50,7 +50,7 @@ public class GeneralJobService {
     /**
      * Update existing job.
      *
-     * @param request           {@link QuartzRequest}
+     * @param request {@link QuartzRequest}
      * @param newCronExpression cron expression
      * @return HTTP response for controller.
      */

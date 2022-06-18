@@ -13,8 +13,8 @@ import java.util.Map;
 /**
  * Scheduled configuration.
  *
- * @author Vladimir Bratchikov
  * @see QuartzJobBean
+ * @author Vladimir Bratchikov
  */
 @Configuration
 public class ScheduledConfig {

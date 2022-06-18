@@ -34,9 +34,6 @@ public class BaseSpringBootTest {
         registry.add("spring.data.mongodb.uri", mongoDBContainer::getReplicaSetUrl);
     }
 
-//    @Container
-//    public static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.4.2");
-
     public static class DockerMongoDataSourceInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         @Override
         public void initialize(@NotNull ConfigurableApplicationContext applicationContext) {
